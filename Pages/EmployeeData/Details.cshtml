@@ -1,0 +1,43 @@
+﻿@page
+@model Employees.Pages.EmployeeData.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>EmployeeInfo</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeInfo.EmployeeNum)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeInfo.EmployeeNum)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeInfo.EmployeeName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeInfo.EmployeeName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeInfo.EmployeeDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeInfo.EmployeeDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.EmployeeInfo.Terminated)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.EmployeeInfo.Terminated)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.EmployeeInfo.EmployeeID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

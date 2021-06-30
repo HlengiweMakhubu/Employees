@@ -1,0 +1,50 @@
+﻿@page
+@model Employees.Pages.EmployeeData.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>EmployeeInfo</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EmployeeInfo.EmployeeID" />
+            <div class="form-group">
+                <label asp-for="EmployeeInfo.EmployeeNum" class="control-label"></label>
+                <input asp-for="EmployeeInfo.EmployeeNum" class="form-control" />
+                <span asp-validation-for="EmployeeInfo.EmployeeNum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeInfo.EmployeeName" class="control-label"></label>
+                <input asp-for="EmployeeInfo.EmployeeName" class="form-control" />
+                <span asp-validation-for="EmployeeInfo.EmployeeName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeInfo.EmployeeDate" class="control-label"></label>
+                <input asp-for="EmployeeInfo.EmployeeDate" class="form-control" />
+                <span asp-validation-for="EmployeeInfo.EmployeeDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeInfo.Terminated" class="control-label"></label>
+                <input asp-for="EmployeeInfo.Terminated" class="form-control" />
+                <span asp-validation-for="EmployeeInfo.Terminated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

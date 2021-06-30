@@ -1,0 +1,75 @@
+﻿@page
+@model Employees.Pages.EmployeeData.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Employee Details</title>
+    
+    <link rel="stylesheet" href="~/css/style.css" />
+</head>
+<body>
+    <h1>Employee Details</h1>
+
+    <p>
+        <a asp-page="Create">Add New Employee Data</a>
+    </p>
+
+    <form style="float:right">
+        <label>Search Employee Number :</label>
+        <input type="text" asp-for="SearchString" />
+        <input type="submit" placeholder="Search" />
+
+    </form>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeInfo[0].EmployeeNum)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeInfo[0].EmployeeName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeInfo[0].EmployeeDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.EmployeeInfo[0].Terminated)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.EmployeeInfo)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeNum)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EmployeeDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Terminated)
+                    </td>
+                    <td>
+                        <a asp-page="./Edit" asp-route-id="@item.EmployeeID">Edit</a> |
+                        <a asp-page="./Details" asp-route-id="@item.EmployeeID">Details</a> |
+                        <a asp-page="./Delete" asp-route-id="@item.EmployeeID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+
+
+</html>
